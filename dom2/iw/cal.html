@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    h1 {
+      margin-left: 700px;
+      color: rgb(86, 189, 189);
+      font-size: 50px;
+    }
+    #maindiv {
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      margin: auto;
+
+      width: 500px;
+      height: 650px;
+      padding-top: 50px;
+    }
+    #sdiv {
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      font-size: 40px;
+      width: 80%;
+      height: 80px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #bdiv {
+      padding: 20px;
+      margin: auto;
+      height: 70%;
+      width: 80%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 10px;
+    }
+    #bdiv > div {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+      text-align: center;
+    }
+    .btn {
+      padding-top: 30px;
+      font-size: 30px;
+      border-radius: 10px;
+    }
+    .bclor {
+      color: aliceblue;
+      padding-top: 30px;
+      font-size: 30px;
+      border-radius: 20px;
+      background-color: black;
+    }
+    #cbtn {
+      color: aliceblue;
+      background-color: red;
+      padding-top: 30px;
+      font-size: 30px;
+      border-radius: 20px;
+    }
+  </style>
+  <body>
+    <h1>Masai Calculator</h1>
+    <div id="maindiv">
+      <div id="sdiv"></div>
+      <div id="bdiv">
+        <div class="btn">1</div>
+        <div class="btn">2</div>
+        <div class="btn">3</div>
+        <div class="bclor">+</div>
+        <div class="btn">4</div>
+        <div class="btn">5</div>
+        <div class="btn">6</div>
+        <div class="bclor">-</div>
+        <div class="btn">7</div>
+        <div class="btn">8</div>
+        <div class="btn">9</div>
+        <div class="bclor">*</div>
+        <div id="cbtn">C</div>
+        <div class="btn">0</div>
+        <div class="bclor">=</div>
+        <div class="bclor">/</div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  let keys = document.querySelectorAll("#bdiv>div");
+  let display = document.querySelector("#sdiv");
+  for (let i = 0; i < keys.length; i++) {
+    keys[i].addEventListener("click", myCal);
+  }
+
+  let bag = "";
+  function myCal() {
+    let targetNumber = event.target.innerText;
+
+    if (targetNumber == "C") {
+      // clear display
+      display.innerText = "";
+      bag = "";
+    } else if (targetNumber == "=") {
+      if (bag == "") {
+        display.innerText = "";
+      } else {
+        display.innerText = eval(bag);
+      }
+    } else {
+      bag = bag + targetNumber;
+      display.innerText = bag;
+    }
+  }
+</script>

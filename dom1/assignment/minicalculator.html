@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="firstnumber" type="text" placeholder="enter 1st number" />
+    <input id="secondnumber" type="text" placeholder="enter 2nd number" />
+
+    <button onclick="AddNumber()">Add</button>
+    <button onclick="SubtractNo()">Subtract</button>
+    <button onclick="Multiplyno()">Multply</button>
+    <button onclick="divideno()">Divide</button>
+  </body>
+  <script>
+    let firstNo = document.getElementById("firstnumber");
+    let secondNo = document.getElementById("secondnumber");
+    console.log(firstNo);
+    function AddNumber() {
+      let num1 = firstNo.value;
+      let num2 = secondNo.value;
+      let res = +num1 + +num2;
+      alert(res);
+    }
+
+    function SubtractNo() {
+      let num1 = firstNo.value;
+      let num2 = secondNo.value;
+      let res = +num1 - +num2;
+      alert(res);
+    }
+
+    function Multiplyno() {
+      let num1 = firstNo.value;
+      let num2 = secondNo.value;
+      let res = +num1 * +num2;
+      alert(res);
+    }
+
+    function divideno() {
+      let num1 = firstNo.value;
+      let num2 = secondNo.value;
+      let res = +num1 / +num2;
+      alert(res);
+    }
+  </script>
+</html>
