@@ -4,6 +4,169 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      #display {
+        margin: auto auto 30px auto;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        width: 600px;
+        height: 200px;
+        /* border: 1px solid black; */
+        gap: 300px;
+      }
+      #display > div {
+        /* border: 1px solid red; */
+        width: 130px;
+        height: 130px;
+      }
+      #min {
+        background-color: red;
+      }
+      #max {
+        background-color: green;
+      }
+      #minx,
+      #maxx {
+        font-size: 40px;
+      }
+      #min > h1,
+      #max > h1 {
+        margin-top: 140px;
+        margin-left: 30px;
+        margin-bottom: 100px;
+      }
+      #score {
+        background-color: rgb(118, 121, 125);
+        width: 400px;
+        height: 150px;
+        margin: 100px auto auto auto;
+        border: 1px solid black;
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #button {
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        margin: 50px auto auto auto;
+
+        display: grid;
+        width: 400px;
+        height: auto;
+        /* border: 1px solid black; */
+        gap: 40px;
+      }
+      #button > div {
+        font-size: 40px;
+        text-align: center;
+
+        margin: auto auto 0px auto;
+        width: 80px;
+        height: 80px;
+        /* border: 1px solid red; */
+      }
+      .green {
+        background-color: green;
+      }
+      .red {
+        background-color: rgb(233, 121, 22);
+      }
+      #zero > :nth-child(1) {
+        border: 1px solid red;
+        border-radius: 8px;
+        font-size: 40px;
+        text-align: center;
+        background-color: mediumvioletred;
+        display: grid;
+        margin: -100px auto auto auto;
+        width: 60px;
+        height: 50px;
+        gap: 20px;
+      }
+      .enter {
+        border-radius: 5px;
+        color: white;
+        background-color: black;
+        font-size: 30px;
+        padding: 30px 90px 30px 80px;
+        margin: 50px 750px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div id="display">
+      <div id="min">
+        <div id="minx"></div>
+        <h1>MIN</h1>
+      </div>
+
+      <div id="max">
+        <div id="maxx"></div>
+        <h1>MAX</h1>
+      </div>
+    </div>
+
+    <div>
+      <div id="score"></div>
+      <div id="button">
+        <div id="btn" class="green">1</div>
+        <div id="btn" class="red">2</div>
+        <div id="btn" class="green">3</div>
+        <div id="btn" class="red">4</div>
+        <div id="btn" class="red">5</div>
+        <div id="btn" class="red">6</div>
+        <div id="btn" class="green">7</div>
+        <div id="btn" class="red">8</div>
+        <div id="btn" class="green">9</div>
+      </div>
+      <div id="zero">
+        <div id="btn">0</div>
+        <div id="btn" class="enter">ENTER</div>
+      </div>
+    </div>
+  </body>
 </html>
+
+<script>
+  let minx = document.getElementById("minx");
+
+  let maxx = document.getElementById("maxx");
+  let display = document.getElementById("score");
+
+  let keys = document.querySelectorAll("#btn");
+  let enter = document.getElementById("#enter");
+  for (let i = 0; i < keys.length; i++) {
+    keys[i].addEventListener("click", scoreFun);
+  }
+
+  let bag = "";
+  let min = 50;
+  let max = 100;
+  minx.innerText = min;
+  maxx.innerText = max;
+  function scoreFun() {
+    let targetNumber = event.target.innerText;
+
+    if (targetNumber == "ENTER") {
+      let num = Number(bag);
+      if (num > max) {
+        max = num;
+        maxx.innerText = max;
+        bag = "";
+        display.innerText = "";
+      } else if (num < min) {
+        min = num;
+        minxx.innerText = min;
+        bag = "";
+        display.innerText = "";
+      }
+    } else {
+      bag = bag + targetNumber;
+    }
+
+    display.innerText = bag;
+  }
+</script>
