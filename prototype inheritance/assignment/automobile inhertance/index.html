@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  // _____________using create()---------------//
+  let fourwheeler = {
+    barnd: "TATA",
+    break: "abs",
+  };
+
+  let newcar1 = Object.create(fourwheeler);
+  newcar1.transmition = "4x4";
+
+  console.log(newcar1);
+
+  ///--------------using constructor function--------
+
+  function FourWheeler(brand, model, gerabox, fuelType, mediaconsole) {
+    this.brand = brand;
+    this.model = model;
+    this.gerabox = gerabox;
+    this.fuelType;
+    this.mediaconsole;
+  }
+
+  FourWheeler.prototype.transmition = function (type) {
+    // this.type = type;
+    console.log(`${this.model} has ${type} tansmition`);
+  };
+
+  let newcar = new FourWheeler(
+    "TATA",
+    "NEXON",
+    6,
+    "Petrol",
+    "ANDROID auto play"
+  );
+  newcar.transmition("automatic");
+  console.log(newcar);
+</script>

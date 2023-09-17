@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+
+<script>
+  //   let obj = {
+  //     persinName: "jhon",
+  //     printname: function () {
+  //       console.log("hello");
+  //     },
+  //   };
+
+  //   let arr = [1, 2, 3, 4, 5];
+  //   console.log(arr.__proto__);
+
+  //   console.log(arr);
+
+  //   function person(name, age) {
+  //     this.name = name;
+  //     this.age = age;
+  //   }
+
+  //   let person1 = new person("batman", 56);
+
+  //   console.log(person1);
+
+  // creat own prototype chain ;
+
+  //   let obj1 = {
+  //     personName: "batman",
+  //     sayHello: function () {
+  //       console.log("batman sayes hello");
+  //     },
+  //   };
+
+  //   let obj2 = {
+  //     personName: "superman",
+  //     superPower: function () {
+  //       console.log("can fly");
+  //     },
+  //   };
+
+  //   Object.setPrototypeOf(obj2, obj1);
+
+  //   //   console.log(obj1);
+  //   console.log(obj2);
+  //   obj2.sayHello();
+
+  //----------------------------------//
+
+  //   let obj = {
+  //     name: "vivek",
+  //     sayHello: function () {
+  //       console.log("Hello");
+  //     },
+  //   };
+
+  //   let obj2 = Object.create(obj); // The Object.create() method creates a new object, using an existing object as the prototype of the newly created object.
+
+  //   obj2.salary = 100000; // adding as main property
+  //   obj2.work = function () {
+  //     // adding as main method
+  //     console.log("Working");
+  //   };
+  //   console.log(obj2);
+
+  //factory function
+
+  // write a factory function iPhone1 to create iPhone objects in bulk quantiy
+  // iPhone1 takes in ASIN, color, display, camera
+  // the object it creates has the following
+  // properties: ASIN, color, display, camera
+  // methods:
+  // dial - console logs "tring.. tring..."
+  // sendMessage - console logs "Sending message..."
+  // cameraClick - "Camera clicked"
+
+  //   function iPhoneGen1(ASIN, color, display, camera) {
+  //     let obj = {};
+  //     Object.setPrototypeOf(obj, iPhoneGen1.prototype);
+  //     obj.ASIN = ASIN;
+  //     obj.color = color;
+  //     obj.display = display;
+  //     obj.camera = camera;
+
+  //     iPhoneGen1.prototype.dial = function () {
+  //       console.log("tring.. tring...");
+  //     };
+
+  //     iPhoneGen1.prototype.sendMessage = function () {
+  //       console.log("Sending message...");
+  //     };
+
+  //     iPhoneGen1.prototype.cameraClick = function () {
+  //       console.log("Camera clicked");
+  //     };
+
+  //     return obj;
+  //   }
+
+  //   let iphone1 = iPhoneGen1("B09X67JBQV", "Gray", "90mm", "2.0 MP");
+  //   console.log(iphone1);
+  //   iphone1.dial(); // "tring.. tring..."
+  //   iphone1.sendMessage(); // "Sending message..."
+  //   iphone1.cameraClick(); // "Camera clicked"
+
+  //*****************************************************//
+
+  //using CF function //
+
+  //   function iPhoneGen1(ASIN, color, display, camera) {
+  //     // let obj = {};
+  //     // Object.setPrototypeOf(obj, iPhoneGen1.prototype);
+  //     this.ASIN = ASIN;
+  //     this.color = color;
+  //     this.display = display;
+  //     this.camera = camera;
+
+  //     iPhoneGen1.prototype.dial = function () {
+  //       console.log("tring.. tring...");
+  //     };
+
+  //     iPhoneGen1.prototype.sendMessage = function () {
+  //       console.log("Sending message...");
+  //     };
+
+  //     iPhoneGen1.prototype.cameraClick = function () {
+  //       console.log("Camera clicked");
+  //     };
+  //   }
+
+  //   let iphone1 = new iPhoneGen1("B09X67JBQV", "Gray", "90mm", "2.0 MP");
+  //   //   console.log(iphone1);
+
+  //   function iPhoneGen2(ASIN, color, display, camera, bluetooth) {
+  //     (this.ASIN = ASIN), (this.display = display), (this.color = color);
+  //     this.camera = camera;
+  //   }
+
+  //   iPhoneGen2.prototype.bluetooth = function () {
+  //     console.log("connecting bluetooth");
+  //   };
+
+  //   let iphone2 = new iPhoneGen2("bbjhbhjb", "gray", "90mm", "2.0 MP", "v1.4");
+  //   console.log(iphone2);
+  //   iphone2.bluetooth();
+
+  //___________________________________________________________________________________________//
+
+  function iPhoneGen1(ASIN, color, display, camera) {
+    let obj = {};
+    Object.setPrototypeOf(obj, iPhoneGen1.prototype);
+    obj.ASIN = ASIN;
+    obj.color = color;
+    obj.display = display;
+    obj.camera = camera;
+
+    iPhoneGen1.prototype.dial = function () {
+      console.log("tring.. tring...");
+    };
+
+    iPhoneGen1.prototype.sendMessage = function () {
+      console.log("Sending message...");
+    };
+
+    iPhoneGen1.prototype.cameraClick = function () {
+      console.log("Camera clicked");
+    };
+
+    return obj;
+  }
+
+  let iphone1 = iPhoneGen1("B09X67JBQV", "Gray", "90mm", "2.0 MP");
+  //   console.log(iphone1);
+  //   iphone1.dial(); // "tring.. tring..."
+  //   iphone1.sendMessage(); // "Sending message..."
+  //   iphone1.cameraClick(); // "Camera clicked"
+
+  function iPhoneGen2(ASIN, color, display, camera, blutooth, musicPlayer) {
+    let obj = {};
+    obj = iPhoneGen1(ASIN, color, display, camera);
+    Object.setPrototypeOf(obj, iPhoneGen2.prototype);
+
+    obj.blutooth = blutooth;
+    obj.musicPlayer = musicPlayer;
+
+    return obj;
+  }
+
+  iPhoneGen2.prototype.blutoothConnect = function () {
+    console.log("connecting to bluetooth");
+  };
+
+  iPhoneGen2.prototype.disCoBluetoth = function () {
+    console.log("disconnecting bluetooth");
+  };
+
+  let iphone2s = iPhoneGen2(
+    "asfsadfa",
+    "midnight Black",
+    "98mm",
+    "4.0Mp",
+    "v2.0",
+    "applemusisc"
+  );
+
+  console.log(iphone2s);
+  iphone2s.blutoothConnect();
+</script>

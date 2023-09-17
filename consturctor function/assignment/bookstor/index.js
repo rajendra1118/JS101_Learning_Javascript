@@ -24,7 +24,7 @@ Book.prototype.getBookInfo = function(){
    
     
    
-     console.log(this.title,this.author.name,this.author.birt,this.author.nationlity,this.genre,this.price)
+     //console.log(this.title,this.author.name,this.author.birt,this.author.nationlity,this.genre,this.price)
     
 }
 
