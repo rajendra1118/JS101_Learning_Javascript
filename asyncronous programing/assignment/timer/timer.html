@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1 id="second">00</h1>
+      <h1 id="minute">00</h1>
+      <h1 id="hour">00</h1>
+    </div>
+
+    <input id="sec" type="number" placeholder="second" />
+    <input id="min" type="number" placeholder="minute" />
+    <input id="hr" type="number" placeholder="hour" />
+
+    <button onclick="Startb()">Start</button>
+    <button onclick="PauseB()">Pause</button>
+    <button onclick="reSetB()">Reset</button>
+  </body>
+</html>
+
+<script>
+  let displaysec = document.getElementById("second");
+  let displaymin = document.getElementById("minute");
+  let displayhr = document.getElementById("hour");
+  let flag = false;
+
+  let count = 10;
+  function Startb() {
+    var secinput = document.getElementById("sec").value;
+    var minInput = document.getElementById("min").value;
+    var hrInput = document.getElementById("hr").value;
+
+    let timer = setInterval(function () {
+      secinput--;
+
+      displaysec.textContent = secinput;
+    }, 1000);
+
+    if (count === 0) {
+      clearTimeout(timer);
+    }
+  }
+
+  // let id = setInterval(() => {
+  //   secinput--;
+  //   displaysec.textContent = secinput;
+  // }, 1000);
+
+  // function delay() {
+  //   secinput--;
+
+  // }
+</script>

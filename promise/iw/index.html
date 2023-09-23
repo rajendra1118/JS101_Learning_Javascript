@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      id="img"
+      src="https://media1.giphy.com/media/Bx59V7wA8ONjVYCzE8/200w.webp?cid=ecf05e47x7998fpgxabuyoperlyokbqv5heeqsc9iocz4tt6&ep=v1_gifs_search&rid=200w.webp&ct=g"
+      alt=""
+    />
+  </body>
+</html>
+<script>
+  //   let isNetworkRequest = true;
+
+  //   let promise1 = new Promise(function (resolve, reject) {
+  //     setTimeout(function () {
+  //       if (isNetworkRequest) {
+  //         let data = [
+  //           { id: 1, name: "ram" },
+  //           { id: 2, name: "sita" },
+  //         ];
+
+  //         resolve(data);
+  //       } else {
+  //         reject(`network reqst is faild`);
+  //       }
+  //     }, 2000);
+  //   });
+
+  //   promise1
+  //     .then(function (res) {
+  //       console.log(res);
+  //     })
+  //     .catch(function (err) {
+  //       console.log(err);
+  //     });
+
+  //   console.log(promise1);
+
+  //-----------------------------------------------//
+
+  // function fetchdata() {
+  //   return new Promise(function (resolve, reject) {
+  //     setTimeout(function () {
+  //       resolve(`request resolve`);
+  //     }, 2000);
+  //   });
+  // }
+
+  // fetchdata().then(function (res) {
+  //   console.log(res);
+  // });
+
+  let img = document.getElementById("img");
+
+  function getData() {
+    return true;
+  }
+
+  let mypromis = new Promise(function (resolve, reject) {
+    let data = false;
+
+    setTimeout(function () {
+      data = getData();
+
+      if (data) {
+        resolve("sweet");
+      } else {
+        reject("chapal");
+      }
+    }, 3000);
+  });
+
+  mypromis
+    .then(function (res) {
+      console.log(res);
+      img.src =
+        "https://media1.giphy.com/media/vOaA4ZjqIVm29DLYr1/200w.webp?cid=ecf05e47z3v11tgfeteqgo6ahfr896zop7kigljec3ybnnyp&ep=v1_gifs_search&rid=200w.webp&ct=g";
+    })
+    .catch(function (err) {
+      console.log(err);
+      img.src =
+        "https://media3.giphy.com/media/oYQ9HRm5Mo7VXeMNVR/200.webp?cid=ecf05e476jberldw6d9okkafprq7zjxi15q0v63hscvq2yui&ep=v1_gifs_search&rid=200.webp&ct=g";
+    });
+</script>

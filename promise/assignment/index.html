@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="display"></div>
+
+    <h2>Order food</h2>
+    <form action="">
+      <select id="foodlist">
+        <option value="">order Food</option>
+        <option value="Fries">Franch Fries</option>
+        <option value="pizza">pizza</option>
+        <option value="colddrinks">cold drinks</option>
+        <option value="Burger">Burger</option></select
+      ><br />
+      <button onclick="OrderFood()">order</button>
+    </form>
+  </body>
+</html>
+
+<script>
+  function OrderFood() {
+    // event.preventDefault();
+
+    let input = document.getElementById("foodlist").value;
+    console.log(input);
+    // return new Promise(function (resolve, reject) {
+    //   setTimeout(function () {
+    //     let data = [
+    //       {
+    //         name: "fries",
+    //         orderid: 123123,
+    //         url: "https://media.istockphoto.com/id/618214356/photo/basket-of-famous-fast-food-french-fries.jpg?s=1024x1024&w=is&k=20&c=lcmse2DITDUsTdxQGr3UwOwvMmcp8Mmz4DtIX6oR9M0=",
+    //       },
+    //       {
+    //         name: "pizza",
+    //         orderid: 123234,
+    //         url: "https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.webp?b=1&s=612x612&w=0&k=20&c=HU9fGxunk5fCW3pN-I1cS53X8--QBgYYDUPInhyTMZU=",
+    //       },
+    //       {
+    //         name: "colddrinks",
+    //         orderid: 123456,
+    //         url: "https://cdn.pixabay.com/photo/2014/09/26/19/51/drink-462776_1280.jpg",
+    //       },
+    //       {
+    //         name: "burger",
+    //         orderid: 123567,
+    //         url: "https://media.istockphoto.com/id/1398630614/photo/bacon-cheeseburger-on-a-toasted-bun.webp?b=1&s=612x612&w=0&k=20&c=kPhJLr_L26EJLQksdGCCnb16RSGOWhbxlm88xU0Bslo=",
+    //       },
+    //     ];
+    //     resolve(data);
+    //   }, 2000);
+    // });
+  }
+
+  //   OrderFood().then(function (res) {
+  //     console.log(res);
+  //   });
+</script>
